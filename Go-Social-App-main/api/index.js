@@ -10,9 +10,9 @@ const port = process.env.PORT || 8000;
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ritesh:ritesh@cluster0.rlexh.mongodb.net/?retryWrites=true&w=majority')
-    .then(console.log('Connected to database!'))
-    .catch((err) => { console.log(err) });
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@chatappc0.x2zlybw.mongodb.net/`)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.log(err));
 
 app.use(express.json());
 app.use(cors());
